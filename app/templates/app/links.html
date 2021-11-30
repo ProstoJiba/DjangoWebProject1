@@ -1,0 +1,17 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+{% load staticfiles %}
+
+<h2>{{ title }}.</h2>
+
+
+<div style="text-align:center">
+    
+    <a href="https://www.catfootwear.com/US/en/home" target="_blank"><img style="width:250px" src="{% static 'app/content/CAT-logo.png' %}" alt="CAT-logo" /></a>
+    <a href="https://www.nike.com/ru/" target="_blank"><img style="width:220px" src="{% static 'app/content/Nike-logo.png' %}" alt="Nike-logo" /></a>
+    <a href="https://www.skechers.ru/" target="_blank"><img style="width:250px" src="{% static 'app/content/skech-logo.png' %}" alt="Skechers-logo" /></a>
+</div>
+
+ 
+{% endblock %}

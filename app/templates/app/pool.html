@@ -1,0 +1,122 @@
+﻿{% extends "app/layout.html" %}
+
+{% block content %}
+{% if form != None %} 
+<br><h2>Пожалуйста заполните анкету</h2><br>
+    <div >
+        <form method="POST" >
+            {% csrf_token %}
+            <label for="{{ form.name.id_for_label}}" >{{form.name.label}}</label>
+            {{form.name}}<br><br>
+             <label for="{{ form.gender.id_for_label }}">{{ form.gender.label }}:</label>
+            {{ form.gender }} <br>
+            <label for="{{ form.city.id_for_label}}">{{form.city.label}}</label>
+            {{form.city}}<br><br>
+             <label for="{{ form.firsmeet.id_for_label }}">{{ form.firstmeet.label }}:</label>
+            <br>{{ form.firstmeet }} <br>
+            <label for="{{ form.waiting.id_for_label}}">{{form.waiting.label}}</label>
+            {{form.waiting}}<br><br>
+            <label for="{{ form.raiting.id_for_label}}">{{form.raiting.label}}</label>
+            {{form.raiting}}<br><br>
+            <label for="{{ form.recomend.id_for_label}}">{{form.recomend.label}}</label>
+            {{form.recomend}}<br><br>
+             <label for="{{ form.message.id_for_label}}">{{form.message.label}}</label>
+            <br>{{form.message}}<br><br>
+            <label for="{{ form.email.id_for_label}}">{{form.email.label}}</label>
+            {{form.email}}<br><br>
+            <label for="{{ form.notice.id_for_label}}">{{form.notice.label}}</label>
+            {{form.notice}}<br><br>
+            
+            <input type="submit" value="Отправить" id="tap">
+        </form>
+    </div>
+{% else %}
+    <br><h2>Спасибо за Ваш отзыв!</h2><br>
+    <h3>Вы отправили нам следующую информацию:</h3>
+    <ul>
+        <li><span> Ваше имя: </span>{{data.name}}</li>
+        <li><span> Ваш город: </span>{{data.city}}</li>
+        <li><span> Ваши ожидания оправдались?: </span>{{data.waiting}}</li>
+        <li><span> Ваша оценка удобства сайта: </span>{{data.raiting}}</li>
+        <li><span> Ваша оценка оформления заказа: </span>{{data.recomend}}</li>
+        <li><span> Ваши пожелания: </span>{{data.message}}</li>
+        <li><span> Ваш e-mail: </span>{{data.email}}</li>
+        <li><span> Получать рассылку: </span>{{data.notice}}</li>
+       
+    </ul>
+{% endif %}
+<script>
+    function tap_mouseover()
+    {
+        $('#tap').css('background-color', 'red')
+    }
+    $('#tap').mouseover(tap_mouseover);
+    function tap_mouseout()
+    {
+        $('#tap').css('background-color', 'white')
+    }
+    $('#tap').mouseout(tap_mouseout);
+    function name_focus()
+    {
+        $('#id_name').css('background-color', '#ffe4c4')
+    }
+    $('#id_name').focus(name_focus);
+    function name_blur()
+    {
+        $('#id_name').css('background-color', 'white')
+    }
+    $('#id_name').blur(name_blur);
+    function city_focus()
+    {
+        $('#id_city').css('background-color', '#ffe4c4')
+    }
+    $('#id_city').focus(city_focus);
+    function city_blur()
+    {
+        $('#id_city').css('background-color', 'white')
+    }
+    $('#id_city').blur(city_blur);
+    function raiting_focus()
+    {
+        $('#id_raiting').css('background-color', '#ffe4c4')
+    }
+    $('#id_raiting').focus(raiting_focus);
+    function raiting_blur()
+    {
+        $('#id_raiting').css('background-color', 'white')
+    }
+    $('#id_raiting').blur(raiting_blur);
+    function recomend_focus()
+    {
+        $('#id_recomend').css('background-color', '#ffe4c4')
+    }
+    $('#id_recomend').focus(recomend_focus);
+    function recomend_blur()
+    {
+        $('#id_recomend').css('background-color', 'white')
+    }
+    $('#id_recomend').blur(recomend_blur);
+    function email_focus()
+    {
+        $('#id_email').css('background-color', '#ffe4c4')
+    }
+    $('#id_email').focus(email_focus);
+    function email_blur()
+    {
+        $('#id_email').css('background-color', 'white')
+    }
+    $('#id_email').blur(email_blur);
+    function notice_focus()
+    {
+        $('#id_notice').css('background-color', '#ffe4c4')
+    }
+    $('#id_notice').focus(notice_focus);
+    function notice_blur()
+    {
+        $('#id_notice').css('background-color', 'white')
+    }
+    $('#id_notice').blur(notice_blur);
+    
+</script>
+   
+{% endblock %}
